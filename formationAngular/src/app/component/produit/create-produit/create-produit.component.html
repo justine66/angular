@@ -1,0 +1,20 @@
+<div>
+  <table>
+    <tr>
+      <td>nom :</td>
+      <input [(ngModel)]="nom" />
+    </tr>
+    <tr>
+      <td>prix :</td>
+      <input [(ngModel)]="prix" />
+    </tr>
+    <tr>
+      <td>photo:</td>
+      <input [(ngModel)]="photo" />
+    </tr>
+    <tr>
+      <td colspan="2"><button (click)="envoyerProduit()">envoyer</button></td>
+    </tr>
+  </table>
+</div>
+<app-produit [produit]="produit"></app-produit>
