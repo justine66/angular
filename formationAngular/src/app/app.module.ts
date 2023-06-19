@@ -7,6 +7,8 @@ import { ProduitComponent } from './component/produit/produit/produit.component'
 import { CreateProduitComponent } from './component/produit/create-produit/create-produit.component';
 import { FormsModule } from '@angular/forms';
 import { DisplayProduitComponent } from './component/produit/display-produit/display-produit.component';
+import { EquipeComponent } from './component/equipe/equipe.component';
+import { SondageComponent } from './component/sondage/sondage.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { DisplayProduitComponent } from './component/produit/display-produit/dis
     ProduitComponent,
     CreateProduitComponent,
     DisplayProduitComponent,
+    EquipeComponent,
+    SondageComponent,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],
