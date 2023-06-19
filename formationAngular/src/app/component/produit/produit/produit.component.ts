@@ -7,7 +7,6 @@ import { Produit } from 'src/app/model/produit';
   styleUrls: ['./produit.component.scss'],
 })
 export class ProduitComponent implements OnInit {
-  @Input()
   produit!: Produit;
 
   constructor() {}
@@ -16,9 +15,7 @@ export class ProduitComponent implements OnInit {
   //on garantie que toutes les données y compris les injections sont pretes
   ngOnInit() {}
 
-  description() {
-    alert(
-      `la description du produit:\n${this.produit.nom} ${this.produit.prix}`
-    );
+  getProduit(produit: Produit) {
+    this.produit = produit;
   }
 }

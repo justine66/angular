@@ -6,6 +6,7 @@ import { DemoFirstComponent } from './component/demo-first/demo-first.component'
 import { ProduitComponent } from './component/produit/produit/produit.component';
 import { CreateProduitComponent } from './component/produit/create-produit/create-produit.component';
 import { FormsModule } from '@angular/forms';
+import { DisplayProduitComponent } from './component/produit/display-produit/display-produit.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { FormsModule } from '@angular/forms';
     DemoFirstComponent,
     ProduitComponent,
     CreateProduitComponent,
+    DisplayProduitComponent,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],

@@ -1,0 +1,10 @@
+<div>
+  nom:{{ produit.nom }} prix:{{ produit.prix }}<br />
+  photo:<img
+    [src]="produit.photo"
+    alt="une tele"
+    width="150px"
+    height="150px"
+  />
+  <button (click)="description()">description</button>
+</div>

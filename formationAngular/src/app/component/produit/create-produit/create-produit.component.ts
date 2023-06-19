@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Produit } from 'src/app/model/produit';
 
 @Component({
@@ -10,9 +10,12 @@ export class CreateProduitComponent {
   nom = '';
   prix = 0;
   photo = '';
+  @Output()
+  produitReadyEvent: EventEmitter<Produit> = new EventEmitter();
+
   produit = new Produit();
 
   envoyerProduit() {
-    this.produit = new Produit(this.nom, this.prix, this.photo);
+    this.produitReadyEvent.emit(new Produit(this.nom, this.prix, this.photo));
   }
 }
