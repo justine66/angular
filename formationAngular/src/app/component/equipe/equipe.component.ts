@@ -3,7 +3,7 @@ import { Equipe } from 'src/app/model/equipe';
 import { Vote } from 'src/app/model/vote';
 
 @Component({
-  selector: 'app-equipe',
+  selector: '[app-equipe]',
   templateUrl: './equipe.component.html',
   styleUrls: ['./equipe.component.scss'],
 })
@@ -17,6 +17,6 @@ export class EquipeComponent {
 
   voter() {
     this.vote++;
-    this.voteEvent.emit(new Vote(this.equipe.nom, this.vote));
+    this.voteEvent.emit(new Vote(this.equipe.nom!, this.vote));
   }
 }

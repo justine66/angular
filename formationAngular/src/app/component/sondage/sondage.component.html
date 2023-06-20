@@ -1,13 +1,11 @@
 {{ msg }}
-<app-equipe
-  [equipe]="equipe1"
-  (voteEvent)="traitementVote($event)"
-></app-equipe>
-<app-equipe
-  [equipe]="equipe2"
-  (voteEvent)="traitementVote($event)"
-></app-equipe>
-<app-equipe
-  [equipe]="equipe3"
-  (voteEvent)="traitementVote($event)"
-></app-equipe>
+<app-create-equipe (equipeReadyEvent)="ajoutEquipe($event)"></app-create-equipe>
+<table>
+  <tr
+    app-equipe
+    *ngFor="let e of equipes"
+    [equipe]="e"
+    (voteEvent)="traitementVote($event)"
+    [ngClass]="{ gold: equipePopulaire && e.nom == equipePopulaire }"
+  ></tr>
+</table>

@@ -1,5 +1,7 @@
-<div>
-  <img [src]="equipe.logo" width="150px" height="150px" />
-  {{ equipe.nom }} nombre de vote:{{ vote }}
-  <button (click)="voter()">voter</button>
-</div>
+<ng-container>
+  <td>
+    <img [src]="equipe.logo" width="150px" height="150px" />
+  </td>
+  <td>{{ equipe.nom }} nombre de vote:{{ vote }}</td>
+  <td><button (click)="voter()">voter</button></td>
+</ng-container>

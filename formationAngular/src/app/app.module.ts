@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { DisplayProduitComponent } from './component/produit/display-produit/display-produit.component';
 import { EquipeComponent } from './component/equipe/equipe.component';
 import { SondageComponent } from './component/sondage/sondage.component';
+import { CreateEquipeComponent } from './component/create-equipe/create-equipe.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { SondageComponent } from './component/sondage/sondage.component';
     DisplayProduitComponent,
     EquipeComponent,
     SondageComponent,
+    CreateEquipeComponent,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],
