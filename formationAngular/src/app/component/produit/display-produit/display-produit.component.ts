@@ -8,7 +8,7 @@ import { Produit } from 'src/app/model/produit';
 })
 export class DisplayProduitComponent {
   @Input()
-  produit!: Produit;
+  produit: Produit = new Produit();
 
   description() {
     alert(

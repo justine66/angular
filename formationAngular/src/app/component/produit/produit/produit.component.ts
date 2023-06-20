@@ -7,7 +7,18 @@ import { Produit } from 'src/app/model/produit';
   styleUrls: ['./produit.component.scss'],
 })
 export class ProduitComponent implements OnInit {
-  produit!: Produit;
+  produits: Produit[] = [
+    new Produit(
+      'avion',
+      9999999,
+      'https://cdn.pixabay.com/photo/2014/11/27/00/58/aircraft-547105_640.jpg'
+    ),
+    new Produit(
+      'telephone',
+      100,
+      'https://cdn.pixabay.com/photo/2014/08/05/10/30/iphone-410324_640.jpg'
+    ),
+  ];
 
   constructor() {}
 
@@ -16,6 +27,14 @@ export class ProduitComponent implements OnInit {
   ngOnInit() {}
 
   getProduit(produit: Produit) {
-    this.produit = produit;
+    this.produits.push(produit);
   }
+
+  // produitExist(): boolean {
+  //   if (this.produit) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 }

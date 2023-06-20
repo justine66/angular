@@ -1,4 +1,12 @@
+<ng-template #nomAutreBalise> pas de produit pour l'instant </ng-template>
 <app-create-produit
   (produitReadyEvent)="getProduit($event)"
 ></app-create-produit>
-<app-display-produit [produit]="produit"></app-display-produit>
+<!-- <app-display-produit
+  *ngIf="produitExist(); else nomAutreBalise"
+  [produit]="produit"
+></app-display-produit> -->
+<app-display-produit
+  *ngFor="let p of produits"
+  [produit]="p"
+></app-display-produit>
