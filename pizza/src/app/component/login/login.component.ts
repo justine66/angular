@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
@@ -11,13 +12,14 @@ export class LoginComponent {
   password = '';
   error = false;
 
-  constructor(private authSrv: AuthService) {}
+  constructor(private authSrv: AuthService, private router: Router) {}
 
   connexion() {
     this.authSrv.connexion(this.login, this.password).subscribe({
       next: (json) => {
         this.error = false;
-        console.debug(json);
+        sessionStorage.setItem('token', json.token);
+        this.router.navigateByUrl('/home');
       },
       error: (err) => {
         console.debug(err);
