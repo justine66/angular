@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { DemoService } from 'src/app/service/demo.service';
 
 @Component({
   selector: 'app-secure',
@@ -9,10 +10,15 @@ import { ActivatedRoute } from '@angular/router';
 export class SecureComponent implements OnInit {
   login = '';
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private monService: DemoService
+  ) {
+    console.debug(this.monService.sayHello());
+  }
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params) => {
-      this.login = params['login'];
+    this.activatedRoute.params.subscribe((parametres) => {
+      this.login = parametres['login'];
     });
   }
 }

@@ -8,9 +8,10 @@ import { LoginComponent } from './component/login/login.component';
 import { SecureComponent } from './component/secure/secure.component';
 import { FormsModule } from '@angular/forms';
 import { MenuComponent } from './component/menu/menu.component';
+import { DemoPipe } from './pipe/demo.pipe';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginComponent, SecureComponent, MenuComponent],
+  declarations: [AppComponent, HomeComponent, LoginComponent, SecureComponent, MenuComponent, DemoPipe],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
