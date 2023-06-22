@@ -2,7 +2,12 @@
 <ul>
   <li *ngFor="let ingredient of ingredients">
     {{ ingredient.id }} {{ ingredient.name }}
-    <button (click)="delete(ingredient.id!)">suppression</button>
+    <button
+      (click)="delete(ingredient.id!)"
+      class="btn btn-outline-danger btn-sm rounded-circle"
+    >
+      <i class="bi bi-trash"> </i>
+    </button>
   </li>
 </ul>
 <a routerLink="/ingredients/add" class="btn btn-link">nouvel ingredient</a>

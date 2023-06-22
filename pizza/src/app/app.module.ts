@@ -12,6 +12,8 @@ import { HomeComponent } from './component/home/home.component';
 import { ListIngredientComponent } from './component/ingredient/list-ingredient/list-ingredient.component';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { NewIngredientComponent } from './component/ingredient/new-ingredient/new-ingredient.component';
+import { ListPateComponent } from './component/pate/list-pate/list-pate.component';
+import { NewPateComponent } from './component/pate/new-pate/new-pate.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { NewIngredientComponent } from './component/ingredient/new-ingredient/ne
     HomeComponent,
     ListIngredientComponent,
     NewIngredientComponent,
+    ListPateComponent,
+    NewPateComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [

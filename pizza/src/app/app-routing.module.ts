@@ -6,6 +6,8 @@ import { HomeComponent } from './component/home/home.component';
 import { AuthenticatedGuardService } from './service/authenticated-guard.service';
 import { ListIngredientComponent } from './component/ingredient/list-ingredient/list-ingredient.component';
 import { NewIngredientComponent } from './component/ingredient/new-ingredient/new-ingredient.component';
+import { ListPateComponent } from './component/pate/list-pate/list-pate.component';
+import { NewPateComponent } from './component/pate/new-pate/new-pate.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -13,6 +15,16 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    canActivate: [AuthenticatedGuardService],
+  },
+  {
+    path: 'pate',
+    component: ListPateComponent,
+    canActivate: [AuthenticatedGuardService],
+  },
+  {
+    path: 'pate/add',
+    component: NewPateComponent,
     canActivate: [AuthenticatedGuardService],
   },
   {

@@ -1,9 +1,33 @@
-<nav>
-  <a routerLink="/login" routerLinkActive="active" class="btn btn-link"
-    >connexion</a
-  >
-  <a routerLink="/inscription" routerLinkActive="active" class="btn btn-link"
-    >inscription</a
-  >
-  <button class="btn btn-link" (click)="logout()">deconnexion</button>
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"
+      ><img
+        src="/assets/pizza.png"
+        height="5%"
+        width="5%"
+        class="rounded-pill"
+      />pizza</a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapsibleNavbar"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="/login">connexion</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/inscription">inscription</a>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" (click)="logout()">deconnexion</button>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>
