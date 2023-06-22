@@ -18,4 +18,8 @@ export class IngredientService {
   public create(ingredient: Ingredient): Observable<Ingredient> {
     return this.httpClient.post(this.url, ingredient);
   }
+
+  public delete(id: number): Observable<void> {
+    return this.httpClient.delete<void>(`${this.url}/${id}`);
+  }
 }

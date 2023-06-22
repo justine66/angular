@@ -13,8 +13,23 @@ export class ListIngredientComponent implements OnInit {
   constructor(private ingredientSrv: IngredientService) {}
 
   ngOnInit(): void {
+    this.initIngredients();
+  }
+
+  initIngredients() {
     this.ingredientSrv.getAllIngredient().subscribe((ingredients) => {
       this.ingredients = ingredients;
+    });
+  }
+
+  delete(id: number) {
+    this.ingredientSrv.delete(id).subscribe({
+      next: (noData) => {
+        this.initIngredients();
+      },
+      error: (err) => {
+        alert(`l'ingredient est encore utilisé pour des pizzas`);
+      },
     });
   }
 }
