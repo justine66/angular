@@ -5,6 +5,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { HomeComponent } from './component/home/home.component';
 import { AuthenticatedGuardService } from './service/authenticated-guard.service';
 import { ListIngredientComponent } from './component/ingredient/list-ingredient/list-ingredient.component';
+import { NewIngredientComponent } from './component/ingredient/new-ingredient/new-ingredient.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -17,6 +18,11 @@ const routes: Routes = [
   {
     path: 'ingredients',
     component: ListIngredientComponent,
+    canActivate: [AuthenticatedGuardService],
+  },
+  {
+    path: 'ingredients/add',
+    component: NewIngredientComponent,
     canActivate: [AuthenticatedGuardService],
   },
   { path: '', redirectTo: 'login', pathMatch: 'full' },

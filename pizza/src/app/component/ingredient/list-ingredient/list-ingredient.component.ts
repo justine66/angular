@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Ingredient } from 'src/app/model/ingredient';
 import { IngredientService } from 'src/app/service/ingredient.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { IngredientService } from 'src/app/service/ingredient.service';
   styleUrls: ['./list-ingredient.component.scss'],
 })
 export class ListIngredientComponent implements OnInit {
-  ingredients: any[] = [];
+  ingredients: Ingredient[] = [];
 
   constructor(private ingredientSrv: IngredientService) {}
 

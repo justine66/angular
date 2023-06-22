@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Ingredient } from '../model/ingredient';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,11 @@ export class IngredientService {
 
   constructor(private httpClient: HttpClient) {}
 
-  public getAllIngredient(): Observable<any[]> {
-    return this.httpClient.get<any[]>(this.url);
+  public getAllIngredient(): Observable<Ingredient[]> {
+    return this.httpClient.get<Ingredient[]>(this.url);
+  }
+
+  public create(ingredient: Ingredient): Observable<Ingredient> {
+    return this.httpClient.post(this.url, ingredient);
   }
 }
