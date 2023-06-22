@@ -18,4 +18,19 @@ export class PizzaService {
   public delete(id: number): Observable<void> {
     return this.httpClient.delete<void>(`${this.url}/${id}`);
   }
+
+  public create(pizza: Pizza): Observable<Pizza> {
+    let ingredientsId: number[] = [];
+    pizza.ingredients?.forEach((i) => ingredientsId.push(i.id!));
+    // for (let i of pizza.ingredients!) {
+    //   ingredientsId.push(i.id!);
+    // }
+
+    let pizzaRequest = {
+      name: pizza.name,
+      pateId: pizza.pate?.id,
+      ingredientsIds: ingredientsId,
+    };
+    return this.httpClient.post<Pizza>(this.url, pizzaRequest);
+  }
 }
