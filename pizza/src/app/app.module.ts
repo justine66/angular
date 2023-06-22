@@ -14,6 +14,8 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { NewIngredientComponent } from './component/ingredient/new-ingredient/new-ingredient.component';
 import { ListPateComponent } from './component/pate/list-pate/list-pate.component';
 import { NewPateComponent } from './component/pate/new-pate/new-pate.component';
+import { ListPizzaComponent } from './component/pizza/list-pizza/list-pizza.component';
+import { NewPizzaComponent } from './component/pizza/new-pizza/new-pizza.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { NewPateComponent } from './component/pate/new-pate/new-pate.component';
     NewIngredientComponent,
     ListPateComponent,
     NewPateComponent,
+    ListPizzaComponent,
+    NewPizzaComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [

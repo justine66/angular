@@ -1,0 +1,27 @@
+<div>
+  <h2>nos pizzas</h2>
+  <table class="table">
+    <tbody>
+      <tr *ngFor="let pizza of obsPizzas | async">
+        <td>{{ pizza.name }}</td>
+        <td>{{ pizza.pate?.name }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let ingredient of pizza.ingredients">
+              {{ ingredient.name }}
+            </li>
+          </ul>
+        </td>
+        <td>
+          <button
+            class="btn btn-outline-danger rounded-circle"
+            (click)="delete(pizza.id!)"
+          >
+            <i class="bi bi-trash"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a routerLink="/pizza/add" class="btn btn-link">nouvelle pizza</a>
+</div>

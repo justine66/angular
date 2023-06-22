@@ -8,6 +8,8 @@ import { ListIngredientComponent } from './component/ingredient/list-ingredient/
 import { NewIngredientComponent } from './component/ingredient/new-ingredient/new-ingredient.component';
 import { ListPateComponent } from './component/pate/list-pate/list-pate.component';
 import { NewPateComponent } from './component/pate/new-pate/new-pate.component';
+import { ListPizzaComponent } from './component/pizza/list-pizza/list-pizza.component';
+import { NewPizzaComponent } from './component/pizza/new-pizza/new-pizza.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -15,6 +17,16 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    canActivate: [AuthenticatedGuardService],
+  },
+  {
+    path: 'pizza',
+    component: ListPizzaComponent,
+    canActivate: [AuthenticatedGuardService],
+  },
+  {
+    path: 'pizza/add',
+    component: NewPizzaComponent,
     canActivate: [AuthenticatedGuardService],
   },
   {

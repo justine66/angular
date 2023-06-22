@@ -23,7 +23,6 @@ export class AuthInterceptor implements HttpInterceptor {
           `Bearer ${sessionStorage.getItem('token')}`
         ),
       });
-      console.debug(request);
     }
     return next.handle(request);
   }

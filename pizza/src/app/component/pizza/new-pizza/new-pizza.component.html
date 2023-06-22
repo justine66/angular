@@ -1,0 +1,22 @@
+<div>
+  <h2>nouvelle pizza</h2>
+  <div>
+    <div class="form-group">
+      <label for="name">nom:</label>
+      <input [(ngModel)]="pizza.name" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="pate">pate:</label>
+      <select class="form-control" [(ngModel)]="pizza.pate">
+        <option [ngValue]="pate" *ngFor="let pate of obsPate | async">
+          {{ pate.name }}
+        </option>
+      </select>
+    </div>
+    <div>
+      <button (click)="save()" class="btn btn-outline-primary">
+        enregistrer
+      </button>
+    </div>
+  </div>
+</div>

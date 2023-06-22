@@ -2,7 +2,12 @@
 <ul>
   <li *ngFor="let pate of observablePates | async">
     {{ pate.id }} {{ pate.name }}
-    <button (click)="delete(pate.id!)"><i class="bi bi-trash"></i></button>
+    <button
+      (click)="delete(pate.id!)"
+      class="btn btn-outline-danger round-circle"
+    >
+      <i class="bi bi-trash"></i>
+    </button>
   </li>
 </ul>
 <a routerLink="/pate/add" class="btn btn-link">nouvelle pate</a>
