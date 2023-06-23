@@ -6,8 +6,19 @@
     <div class="form-group">
       <label for="login">username:</label>
       <input id="login" class="form-control" formControlName="login" />
-      <span *ngIf="form.get('login')?.dirty && form.get('login')?.invalid">
+      <span
+        *ngIf="
+          form.get('login')?.dirty && form.get('login')?.hasError('required')
+        "
+      >
         *probleme login
+      </span>
+      <span
+        *ngIf="
+          form.get('login')?.dirty && form.get('login')?.hasError('loginused')
+        "
+      >
+        *login deja utilisé
       </span>
     </div>
     <ng-container formGroupName="passwordGrp">
@@ -41,7 +52,8 @@
         />
         <span
           *ngIf="
-            form.get('passwordGrp')?.dirty && form.get('passwordGrp')?.invalid
+            form.get('passwordGrp')?.dirty &&
+            form.get('passwordGrp')?.hasError('passwordConfirmEqual')
           "
           >pas identique</span
         >

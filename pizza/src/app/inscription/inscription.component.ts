@@ -3,11 +3,13 @@ import { AuthService } from '../service/auth.service';
 import { Router } from '@angular/router';
 import {
   AbstractControl,
+  AsyncValidatorFn,
   FormControl,
   FormGroup,
   ValidationErrors,
   Validators,
 } from '@angular/forms';
+import { Observable, map } from 'rxjs';
 
 @Component({
   selector: 'app-inscription',
@@ -24,7 +26,7 @@ export class InscriptionComponent implements OnInit {
   ngOnInit(): void {
     this.form = new FormGroup(
       {
-        login: new FormControl('', Validators.required),
+        login: new FormControl('', Validators.required, this.loginUsed()),
         passwordGrp: new FormGroup(
           {
             password: new FormControl('', [
@@ -40,6 +42,22 @@ export class InscriptionComponent implements OnInit {
       },
       this.loginPasswordNotEquals
     );
+  }
+
+  loginUsed(): AsyncValidatorFn {
+    return (control: AbstractControl): Observable<ValidationErrors | null> => {
+      return this.authService.loginUsed(control.value).pipe(
+        map((bool) => {
+          if (bool) {
+            return { loginused: true };
+          } else {
+            return null;
+          }
+        })
+      );
+    };
+    // fct pipe permet de recuperer le contenu de l'observable renvoye par la fct loginUsed
+    // on utilise la fct map pour transformer le resultat et le renvoyer dans un autre Observable
   }
 
   loginPasswordNotEquals(control: AbstractControl): ValidationErrors | null {

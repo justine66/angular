@@ -11,6 +11,10 @@ export class AuthService {
 
   constructor(private httpClient: HttpClient, private router: Router) {}
 
+  public loginUsed(username: string): Observable<boolean> {
+    return this.httpClient.get<boolean>(`${this.url}/check/${username}`);
+  }
+
   public isAuthenticated(): boolean {
     return sessionStorage.getItem('token') !== null;
   }
