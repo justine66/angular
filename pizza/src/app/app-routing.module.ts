@@ -51,7 +51,7 @@ const routes: Routes = [
     component: NewIngredientComponent,
     canActivate: [AuthenticatedGuardService],
   },
-  { path: '', redirectTo: 'form', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
 ];
 
 @NgModule({

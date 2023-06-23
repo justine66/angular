@@ -1,18 +1,37 @@
 <form (ngSubmit)="submit()" [formGroup]="form">
-  <div class="form-group">
-    <label for="prenom">prenom:</label>
-    <input class="form-control" formControlName="prenom" />
-    <div *ngIf="form.get('prenom')?.invalid">
-      <span *ngIf="form.get('prenom')?.hasError('required')">obligatoire</span>
-      <span *ngIf="form.get('prenom')?.hasError('minlength')"
-        >2 caracteres</span
-      >
-      <span *ngIf="form.get('prenom')?.hasError('toto')">toto interdit</span>
+  <ng-container formGroupName="prenomLoginGrp">
+    <div class="form-group">
+      <label for="prenom">prenom:</label>
+      <input id="prenom" class="form-control" formControlName="prenom" />
+      <div *ngIf="form.get('prenom')?.invalid">
+        <span *ngIf="form.get('prenom')?.hasError('required')"
+          >obligatoire</span
+        >
+        <span *ngIf="form.get('prenom')?.hasError('minlength')"
+          >2 caracteres</span
+        >
+        <span *ngIf="form.get('prenom')?.hasError('toto')">toto interdit</span>
+        <span *ngIf="form.get('prenom')?.hasError('chaineInterdite')"
+          >pas bon</span
+        >
+      </div>
     </div>
-  </div>
+    <div class="form-group">
+      <label for="login">login:</label>
+      <input id="login" class="form-control" formControlName="login" />
+      <div
+        *ngIf="
+          form.get('prenomLoginGrp.login')?.dirty &&
+          form.get('prenomLoginGrp')?.hasError('prenomLoginEgaux')
+        "
+      >
+        le prenom et le login doivent etre different
+      </div>
+    </div>
+  </ng-container>
   <div class="form-group">
     <label for="nom">nom:</label>
-    <input class="form-control" formControlName="nom" />
+    <input id="nom" class="form-control" formControlName="nom" />
   </div>
   <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
     envoyer

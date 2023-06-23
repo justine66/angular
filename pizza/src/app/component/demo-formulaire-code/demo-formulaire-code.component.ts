@@ -18,17 +18,31 @@ export class DemoFormulaireCodeComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      prenom: new FormControl('a', [
-        Validators.required,
-        Validators.minLength(2),
-        CustomValidator.pasToto,
-      ]),
       nom: new FormControl(''),
+      prenomLoginGrp: new FormGroup(
+        {
+          prenom: new FormControl('a', [
+            Validators.required,
+            Validators.minLength(2),
+            CustomValidator.pasToto,
+            CustomValidator.chaineInterdite('tutu'),
+            CustomValidator.chaineInterdite('tata'),
+          ]),
+          login: new FormControl(''),
+        },
+        this.prenomLoginDifferent
+      ),
     });
   }
 
   submit() {
     console.debug(this.form);
+  }
+
+  prenomLoginDifferent(control: AbstractControl): ValidationErrors | null {
+    return control.get('prenom')?.value === control.get('login')?.value
+      ? { prenomLoginEgaux: true }
+      : null;
   }
 
   pasToto(control: AbstractControl): ValidationErrors | null {
