@@ -11,6 +11,7 @@
         class="form-control"
         [(ngModel)]="login"
         required
+        pattern="[a-z]+"
         #loginCtrl="ngModel"
       />
       <div *ngIf="loginCtrl.dirty && loginCtrl.invalid">*login obligatoire</div>
@@ -20,9 +21,14 @@
       <input
         id="password"
         name="password"
+        required
         class="form-control"
         [(ngModel)]="password"
+        #passwordCtrl="ngModel"
       />
+      <div *ngIf="passwordCtrl.dirty && passwordCtrl.invalid">
+        *password obligatoire
+      </div>
     </div>
     <button
       type="submit"

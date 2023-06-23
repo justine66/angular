@@ -1,12 +1,29 @@
 <div>
   <h2>nouvelle pate</h2>
-  <div>
+  <form (ngSubmit)="ajout()" #form="ngForm">
     <div class="form-group">
       <label for="name">votre ingredient</label>
-      <input [(ngModel)]="pate.name" class="form-control" />
+      <input
+        id="name"
+        name="name"
+        required
+        pattern="[a-zA-Z]+(\s[a-zA-Z]+)*"
+        [(ngModel)]="pate.name"
+        class="form-control"
+        #nameCtrl="ngModel"
+      />
+      <div *ngIf="nameCtrl.dirty && nameCtrl.invalid">
+        *information incorrecte
+      </div>
     </div>
     <div>
-      <button (click)="ajout()" class="btn btn-outline-primary">ajouter</button>
+      <button
+        type="submit"
+        class="btn btn-outline-primary"
+        [disabled]="form.invalid"
+      >
+        ajouter
+      </button>
     </div>
-  </div>
+  </form>
 </div>
