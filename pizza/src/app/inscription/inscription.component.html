@@ -2,17 +2,57 @@
   <h2 class="card-header text-center">inscription</h2>
   <div *ngIf="error" class="alert alert-danger">probleme inscription</div>
   <!--on aura une balise form quand on sera faire-->
-  <div class="card-body">
+  <form class="card-body" (ngSubmit)="inscription()" [formGroup]="form">
     <div class="form-group">
       <label for="login">username:</label>
-      <input class="form-control" [(ngModel)]="login" />
+      <input id="login" class="form-control" formControlName="login" />
+      <span *ngIf="form.get('login')?.dirty && form.get('login')?.invalid">
+        *probleme login
+      </span>
     </div>
-    <div class="form-group">
-      <label for="password">password:</label>
-      <input class="form-control" [(ngModel)]="password" />
-    </div>
-    <button (click)="inscription()" class="btn btn-outline-primary">
+    <ng-container formGroupName="passwordGrp">
+      <div class="form-group">
+        <label for="password">password:</label>
+        <input
+          id="password"
+          type="text"
+          class="form-control"
+          formControlName="password"
+        />
+        <span
+          *ngIf="
+            form.get('passwordGrp.password')?.dirty &&
+            form.get('passwordGrp.password')?.invalid
+          "
+        >
+          *probleme password
+        </span>
+        <span *ngIf="form.hasError('loginPasswordNotEquals')"
+          >le mot de passe et le login sont identiques</span
+        >
+      </div>
+      <div class="form-group">
+        <label for="confirm">confirmation du password:</label>
+        <input
+          id="confirm"
+          type="text"
+          class="form-control"
+          formControlName="confirm"
+        />
+        <span
+          *ngIf="
+            form.get('passwordGrp')?.dirty && form.get('passwordGrp')?.invalid
+          "
+          >pas identique</span
+        >
+      </div>
+    </ng-container>
+    <button
+      type="submit"
+      class="btn btn-outline-primary"
+      [disabled]="form.invalid"
+    >
       inscription
     </button>
-  </div>
+  </form>
 </div>
