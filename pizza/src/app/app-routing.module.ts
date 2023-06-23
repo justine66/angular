@@ -10,8 +10,10 @@ import { ListPateComponent } from './component/pate/list-pate/list-pate.componen
 import { NewPateComponent } from './component/pate/new-pate/new-pate.component';
 import { ListPizzaComponent } from './component/pizza/list-pizza/list-pizza.component';
 import { NewPizzaComponent } from './component/pizza/new-pizza/new-pizza.component';
+import { DemoFormulaireCodeComponent } from './component/demo-formulaire-code/demo-formulaire-code.component';
 
 const routes: Routes = [
+  { path: 'form', component: DemoFormulaireCodeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'inscription', component: InscriptionComponent },
   {
@@ -49,7 +51,7 @@ const routes: Routes = [
     component: NewIngredientComponent,
     canActivate: [AuthenticatedGuardService],
   },
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'form', pathMatch: 'full' },
 ];
 
 @NgModule({

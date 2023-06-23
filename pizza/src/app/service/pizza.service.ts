@@ -22,9 +22,11 @@ export class PizzaService {
   public create(pizza: Pizza): Observable<Pizza> {
     let ingredientsId: number[] = [];
     pizza.ingredients?.forEach((i) => ingredientsId.push(i.id!));
-    // for (let i of pizza.ingredients!) {
-    //   ingredientsId.push(i.id!);
-    // }
+    //if(pizza.ingredients){
+    //  for (let i of pizza.ingredients!) {
+    //    ingredientsId.push(i.id!);
+    //  }
+    //}
 
     let pizzaRequest = {
       name: pizza.name,

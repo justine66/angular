@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './component/login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { MenuComponent } from './component/menu/menu.component';
 import { HomeComponent } from './component/home/home.component';
@@ -16,6 +16,7 @@ import { ListPateComponent } from './component/pate/list-pate/list-pate.componen
 import { NewPateComponent } from './component/pate/new-pate/new-pate.component';
 import { ListPizzaComponent } from './component/pizza/list-pizza/list-pizza.component';
 import { NewPizzaComponent } from './component/pizza/new-pizza/new-pizza.component';
+import { DemoFormulaireCodeComponent } from './component/demo-formulaire-code/demo-formulaire-code.component';
 
 @NgModule({
   declarations: [
@@ -30,8 +31,15 @@ import { NewPizzaComponent } from './component/pizza/new-pizza/new-pizza.compone
     NewPateComponent,
     ListPizzaComponent,
     NewPizzaComponent,
+    DemoFormulaireCodeComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   providers: [
     { useClass: AuthInterceptor, provide: HTTP_INTERCEPTORS, multi: true },
   ],
