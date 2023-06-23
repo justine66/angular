@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Pizza } from '../model/pizza';
+import { SERVER } from '../config';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PizzaService {
-  private url = 'http://localhost:8080/api/pizza';
+  private url = SERVER + '/api/pizza';
 
   constructor(private httpClient: HttpClient) {}
 

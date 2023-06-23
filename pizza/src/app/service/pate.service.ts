@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Pate } from '../model/pate';
 import { Observable } from 'rxjs';
+import { SERVER } from '../config';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PateService {
-  url = 'http://localhost:8080/api/pate';
+  url = SERVER + '/api/pate';
 
   constructor(private httpClient: HttpClient) {}
 

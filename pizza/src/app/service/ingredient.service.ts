@@ -2,12 +2,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Ingredient } from '../model/ingredient';
+import { SERVER } from '../config';
 
 @Injectable({
   providedIn: 'root',
 })
 export class IngredientService {
-  private url = 'http://localhost:8080/api/ingredient';
+  private url = SERVER + '/api/ingredient';
 
   constructor(private httpClient: HttpClient) {}
 

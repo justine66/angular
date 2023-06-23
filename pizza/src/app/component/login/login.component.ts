@@ -19,6 +19,9 @@ export class LoginComponent {
       next: (json) => {
         this.error = false;
         sessionStorage.setItem('token', json.token);
+        this.authSrv.infos().subscribe((data) => {
+          sessionStorage.setItem('user', JSON.stringify(data));
+        });
         this.router.navigateByUrl('/home');
       },
       error: (err) => {

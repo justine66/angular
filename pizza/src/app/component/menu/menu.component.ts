@@ -11,4 +11,8 @@ export class MenuComponent {
   logout() {
     this.authSrv.logout();
   }
+
+  get login() {
+    return this.authSrv.isAuthenticated();
+  }
 }

@@ -1,3 +1,4 @@
+import { AnonymousGuardService } from './service/anonymous-guard.service';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './component/login/login.component';
@@ -11,11 +12,20 @@ import { NewPateComponent } from './component/pate/new-pate/new-pate.component';
 import { ListPizzaComponent } from './component/pizza/list-pizza/list-pizza.component';
 import { NewPizzaComponent } from './component/pizza/new-pizza/new-pizza.component';
 import { DemoFormulaireCodeComponent } from './component/demo-formulaire-code/demo-formulaire-code.component';
+import { AdminGuardService } from './service/admin-guard.service';
 
 const routes: Routes = [
   { path: 'form', component: DemoFormulaireCodeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'inscription', component: InscriptionComponent },
+  {
+    path: 'login',
+    component: LoginComponent,
+    canActivate: [AnonymousGuardService],
+  },
+  {
+    path: 'inscription',
+    component: InscriptionComponent,
+    canActivate: [AnonymousGuardService],
+  },
   {
     path: 'home',
     component: HomeComponent,
@@ -29,27 +39,27 @@ const routes: Routes = [
   {
     path: 'pizza/add',
     component: NewPizzaComponent,
-    canActivate: [AuthenticatedGuardService],
+    canActivate: [AdminGuardService],
   },
   {
     path: 'pate',
     component: ListPateComponent,
-    canActivate: [AuthenticatedGuardService],
+    canActivate: [AdminGuardService],
   },
   {
     path: 'pate/add',
     component: NewPateComponent,
-    canActivate: [AuthenticatedGuardService],
+    canActivate: [AdminGuardService],
   },
   {
     path: 'ingredients',
     component: ListIngredientComponent,
-    canActivate: [AuthenticatedGuardService],
+    canActivate: [AdminGuardService],
   },
   {
     path: 'ingredients/add',
     component: NewIngredientComponent,
-    canActivate: [AuthenticatedGuardService],
+    canActivate: [AdminGuardService],
   },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
 ];
